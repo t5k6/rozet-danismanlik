@@ -42,7 +42,7 @@ const PageTemplate = css`
   @media only screen and (min-width: 980px) {
     .post-full-content {
       grid-gap: 1em;
-      grid-template-columns: 45% 45%;
+      grid-template-columns: 50% 48%;
       grid-template-areas: 'user1 user2';
     }
   }

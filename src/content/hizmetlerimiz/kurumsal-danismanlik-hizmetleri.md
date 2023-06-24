@@ -2,7 +2,7 @@
 type: page
 layout: post
 title: "Kurumsal Danışmanlık Hizmetleri"
-author: Rozet
+author: [Rozet]
 tags: ["Hizmetlerimiz"]
 image: img/handshake.jpg
 date: "2018-05-09T23:46:37.121Z"

@@ -2,7 +2,7 @@
 type: article
 layout: post
 title: "EMDR Terapi Nedir"
-author: Zeliha Özata
+author: [Zeliha Özata]
 tags: ["EMDR"]
 image: img-mak/patrick-brinksma-382458-eyes.jpg
 date: "2018-12-06T10:00:00.000Z"
@@ -21,9 +21,9 @@ Danışan terapistin sağa ve sola hareket eden parmağını gözleri ile takip 
 EMDR terapisinde 8 aşamalı, üç yönlü (geçmiş, şimdi, gelecek) bir protokol uygulanır. Hedef, geçmişte yaşanan anıların yeniden işlenerek duyarsızlaşmanın sağlanmasıdır.
 
 - Destek aldığınız uzmanın bu konuda eğitim almış olması çok önemlidir. Bu konuda eğitim almış olan uzmanın sizin EMDR ile calışmaya uygun olduğunuza karar vermesi halinde uygulanabilir.
-- EMDR hipnoz değildir, hipnoz farklı bir yöntemdir. 
-- EMDR zararlı bir yöntem değildir, bu konuda eğitim almış ruh sağlığı uzmanıyla güvenle çalışabilirsiniz. 
+- EMDR hipnoz değildir, hipnoz farklı bir yöntemdir.
+- EMDR zararlı bir yöntem değildir, bu konuda eğitim almış ruh sağlığı uzmanıyla güvenle çalışabilirsiniz.
 - EMDR kontrolünüz dışında olan bir süreç değildir, destek aldığınız uzman ile bilinçli bir işbirliği içinde çalışabilirsiniz.
- 
+
 EMDR ile ilgili daha fazla bilgi için [tıklayın](https://zelihaozata.com.tr/blog/2019-06/g%C3%B6z-hareketleri-ile-duyars%C4%B1zla%C5%9Ft%C4%B1rma-ve-yeniden-i%C5%9Fleme-emdr/).
 

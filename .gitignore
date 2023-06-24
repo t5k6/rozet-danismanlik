@@ -114,5 +114,3 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 .vscode
-
-.ionide/

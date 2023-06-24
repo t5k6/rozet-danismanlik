@@ -2,7 +2,7 @@
 type: page
 layout: post
 title: "SAS Dinleti Programları"
-author: Rozet
+author: [Rozet]
 tags: ["Hizmetlerimiz", "sas"]
 image: img/alireza-attari-671192-unsplash.jpg
 date: "2018-05-10T23:46:37.121Z"

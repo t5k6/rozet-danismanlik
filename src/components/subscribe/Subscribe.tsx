@@ -1,44 +1,67 @@
 import { lighten } from 'polished';
-import * as React from 'react';
+import React from 'react';
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 
 import { colors } from '../../styles/colors';
-import SubscribeForm from './SubscribeForm';
+import { SubscribeForm } from './SubscribeForm';
 
+export type SubscribeProps = {
+  title: string;
+};
+
+export function Subscribe(props: SubscribeProps) {
+  return (
+    <SubscribeFormSection>
+      <h3 css={SubscribeFormTitle}>Subscribe to {props.title}</h3>
+      <p>Get the latest posts delivered right to your inbox</p>
+      <SubscribeForm />
+    </SubscribeFormSection>
+  );
+}
 
 const SubscribeFormSection = styled.section`
   margin: 1.5em 0;
-  padding: 6.5vw 7vw 7vw;
-  /* border: color(var(--whitegrey) l(+2%)) 1px solid; */
-  border: ${lighten('0.02', colors.whitegrey)} 1px solid;
+  padding: 6.5vw 7vw 8vw;
+  /* border: color(var(--lightgrey) l(+10%)) 1px solid; */
+  border: ${lighten('0.1', colors.lightgrey)} 1px solid;
   text-align: center;
-  /* background: color(var(--whitegrey) l(+4%)); */
-  background: ${lighten('0.04', colors.whitegrey)};
-  border-radius: 7px;
+  /* background: linear-gradient(color(var(--whitegrey) l(+6%)), color(var(--whitegrey) l(+4%))); */
+  background: linear-gradient(
+    ${lighten('0.06', colors.whitegrey)},
+    ${lighten('0.04', colors.whitegrey)}
+  );
+  border-radius: 3px;
 
   p {
-    margin-bottom: 1em;
+    margin-bottom: 0.2em 0 1em;
+    /* color: var(--midgrey); */
     color: ${colors.midgrey};
-    font-size: 2.2rem;
+    font-size: 2.1rem;
     line-height: 1.55em;
-    letter-spacing: 0.2px;
   }
 
-  form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    max-width: 420px;
+  @media (max-width: 650px) {
+    p {
+      font-size: 1.6rem;
+    }
   }
 
   .form-group {
     flex-grow: 1;
   }
-  @media (max-width: 650px) {
+
+  @media (prefers-color-scheme: dark) {
+    border: none;
+    /* background: linear-gradient(color(var(--darkmode) l(-6%)), color(var(--darkmode) l(-3%))); */
+    /* background: linear-gradient(
+      ${lighten('-0.06', colors.darkmode)},
+      ${lighten('-0.03', colors.darkmode)}
+    ); */
+    background: linear-gradient(#000, #000);
+
     p {
-      font-size: 1.6rem;
+      color: rgba(255, 255, 255, 0.7);
     }
   }
 `;
@@ -46,27 +69,17 @@ const SubscribeFormSection = styled.section`
 const SubscribeFormTitle = css`
   margin: 0 0 3px 0;
   padding: 0;
+  /* color: var(--darkgrey); */
   color: ${colors.darkgrey};
   font-size: 3.5rem;
   line-height: 1;
-  font-weight: 700;
+  font-weight: 600;
+
   @media (max-width: 650px) {
     font-size: 2.4rem;
   }
+
+  @media (prefers-color-scheme: dark) {
+    color: rgba(255, 255, 255, 0.9);
+  }
 `;
-
-export interface SubscribeProps {
-  title: string;
-}
-
-const Subscribe: React.FunctionComponent<SubscribeProps> = props => {
-  return (
-    <SubscribeFormSection>
-      <h3 css={SubscribeFormTitle}>{props.title}'e Abone Olun</h3>
-      <p>Yeni makalelerin mail adresinize gelmesi için abone olabilirsiniz</p>
-      <SubscribeForm />
-    </SubscribeFormSection>
-  );
-};
-
-export default Subscribe;

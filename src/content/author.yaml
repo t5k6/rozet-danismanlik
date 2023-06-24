@@ -1,4 +1,4 @@
-- id: Rozet
+- name: Rozet
   avatar: avatars/fav.png
   bio: Özel Rozet Aile Danışma Merkezi
   twitter: rozet_dan
@@ -7,7 +7,7 @@
   website: https://rozetdanismanlik.com
   location: Altınşehir Mahallesi 205. Sokak No:38/1 Nilüfer Bursa
   profile_image: img/author/IMG_5993.jpg
-- id: Gökçin Çaylar
+- name: Gökçin Çaylar
   avatar: avatars/gokcin_caylar.jpg
   bio: Uzman Klinik Psikolog
   twitter: rozet_dan
@@ -16,7 +16,7 @@
   website: https://www.doktortakvimi.com/gokcin-caylar/psikoloji/bursa
   location: Bursa
   profile_image: img/author/ryan-pernofski-1380833-unsplash.jpg
-- id: Zeliha Özata
+- name: Zeliha Özata
   avatar: avatars/zeliha_ozata3.jpg
   bio: Uzman Psikolog
   twitter: OzataZeliha
@@ -25,7 +25,7 @@
   website: https://zelihaozata.com.tr/
   location: Bursa
   profile_image: img/author/max-kukurudziak-1382121-unsplash.jpg
-- id: Ecem Tüzen
+- name: Ecem Tüzen
   avatar: avatars/ecem_tuzen.jpg
   bio: Sağlıklı Beslenme ve Fitoterapi Uzmanı
   twitter: ecemtuzen
@@ -34,3 +34,18 @@
   website: https://www.doktortakvimi.com/ecem-tuzen/diyetisyen-beslenme-uzmani-fitoterapi/bursa
   location: Bursa
   profile_image: img/author/markus-spiske-lO8oONm7an0-unsplash.jpg
+- name: Ghost
+  avatar: avatars/ghost.png
+  bio: The professional publishing platform
+  twitter: TryGhost
+  facebook: ghost
+  website: https://ghost.org/
+  location: San Francisco
+- name: Another Author
+  avatar: avatars/ghost.png
+  bio: This is another test author with a profile background image
+  twitter: TryGhost
+  facebook: ghost
+  website: https://ghost.org/
+  location: San Francisco
+  profile_image: img/alex-knight-326705-unsplash.jpg

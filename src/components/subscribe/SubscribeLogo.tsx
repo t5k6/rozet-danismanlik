@@ -1,46 +1,48 @@
-import { graphql, StaticQuery } from 'gatsby';
-import * as React from 'react';
-import styled from '@emotion/styled'
+/* eslint-disable react/no-unused-prop-types */
+import { graphql, useStaticQuery } from 'gatsby';
+import { getSrc } from 'gatsby-plugin-image';
+import React from 'react';
+
+import { css } from '@emotion/react';
 
 import config from '../../website-config';
 
-const SubscribeOverlayLogo = styled.img`
+type SiteNavLogoProps = {
+    logo?: any;
+};
+
+function SubscribeLogo() {
+    const data: SiteNavLogoProps = useStaticQuery(graphql`
+    query SubscribeOverlayLogo {
+      logo: file(relativePath: { eq: "img/ghost-logo.png" }) {
+        childImageSharp {
+          gatsbyImageData(quality: 100, width: 500, layout: FIXED)
+        }
+      }
+    }
+  `);
+
+    const { logo } = data;
+
+    if (!logo) {
+        return null;
+    }
+
+    return (
+        <img
+            css={SubscribeOverlayLogo}
+            className="subscribe-overlay-logo"
+            src={getSrc(logo)}
+            alt={config.title}
+        />
+    );
+}
+
+const SubscribeOverlayLogo = css`
   position: fixed;
   top: 23px;
   left: 30px;
   height: 30px;
 `;
-
-interface SiteNavLogoProps {
-  logo?: {
-    childImageSharp: {
-      fixed: any;
-    };
-  };
-}
-
-const SubscribeLogo = () => (
-  <StaticQuery
-    query={graphql`
-      query SubscribeOverlayLogo {
-        logo: file(relativePath: { eq: "img/logo.png" }) {
-          childImageSharp {
-            # Specify the image processing specifications right in the query.
-            # Makes it trivial to update as your page's design changes.
-            fixed {
-              ...GatsbyImageSharpFixed
-            }
-          }
-        }
-      }
-    `}
-    // tslint:disable-next-line:react-this-binding-issue
-    render={(data: SiteNavLogoProps) =>
-      data.logo && (
-        <SubscribeOverlayLogo src={data.logo.childImageSharp.fixed.src} alt={config.title} />
-      )
-    }
-  />
-);
 
 export default SubscribeLogo;

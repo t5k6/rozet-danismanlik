@@ -2,7 +2,7 @@
 type: article
 layout: post
 title: "Disleksi Bir Okuma Güçlüğüdür"
-author: Zeliha Özata
+author: [Zeliha Özata]
 tags: ["disleksi"]
 image: img-mak/annie-spratt-454816.jpg
 date: "2018-12-06T10:00:00.000Z"

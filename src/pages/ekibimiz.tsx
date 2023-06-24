@@ -1,97 +1,85 @@
-import IndexLayout from '../layouts';
-import Wrapper from '../components/Wrapper';
-import SiteNav from '../components/header/SiteNav';
-import { SiteHeader, outer, inner, SiteMain } from '../styles/shared';
 import React from 'react';
-import { css } from '@emotion/core';
-import { Link } from "gatsby"
+import { css } from '@emotion/react';
 
-import { PostFullHeader, PostFullTitle, NoImage, PostFull } from '../templates/post';
+import { Footer } from '../components/Footer';
+import SiteNav from '../components/header/SiteNav';
 import { PostFullContent } from '../components/PostContent';
-import Footer from '../components/Footer';
-import Helmet from 'react-helmet';
-
-import AccordionGokcin from './cv_content/accordion_content_gokcin';
-import AccordionZeliha from './cv_content/accordion_content_zeliha';
-import AccordionEcem from './cv_content/accordion_content_ecem';
-
-import * as TeamPhoto from '../content/photos/ILK_8490.jpg';
+import { Wrapper } from '../components/Wrapper';
+import IndexLayout from '../layouts';
+import {
+    inner,
+    outer,
+    SiteArchiveHeader,
+    SiteHeader,
+    SiteMain,
+    SiteNavMain,
+} from '../styles/shared';
+import { NoImage, PostFull, PostFullHeader, PostFullTitle } from '../templates/post';
+import { colors } from '../styles/colors';
 
 const PageTemplate = css`
   .site-main {
-    background: #fff;
+    margin-top: 64px;
     padding-bottom: 4vw;
+    background: #fff;
   }
-  .post-full-content {
-    display: grid;
-    grid-gap: 1em;
-    grid-template-areas:
-      'user1'
-      'user2';
-  }
-  .user1 {
-    grid-area: user1;
-  }
-  .user2 {
-    grid-area: user2;
-  }
-  .username {
-    margin: 0 0 12px 0;
-    padding: 0;
-  }
-  @media only screen and (min-width: 980px) {
-    .post-full-content {
-      grid-gap: 1em;
-      grid-template-columns: 50% 48%;
-      grid-template-areas: 'user1 user2';
+
+  @media (prefers-color-scheme: dark) {
+    .site-main {
+      /* background: var(--darkmode); */
+      background: ${colors.darkmode};
     }
   }
 `;
 
-const About: React.FunctionComponent = () => (
-  <IndexLayout>
-    <Helmet>
-      <title>Ekibimiz</title>
-    </Helmet>
-    <Wrapper css={PageTemplate}>
-      <header css={[outer, SiteHeader]}>
-        <div css={inner}>
-          <SiteNav />
-        </div>
-      </header>
-      <main id="site-main" className="site-main" css={[SiteMain, outer]}>
-        <article className="post page" css={[PostFull, NoImage]}>
-          <PostFullHeader>
-            <PostFullTitle>Ekibimiz ve Uzmanlık Alanları</PostFullTitle>
-          </PostFullHeader>
-          <div style={{ textAlign: 'center', marginBottom: '2em' }}>
-            <img
-              src={TeamPhoto}
-              alt="Gokçin ve Zeliha"
-              style={{ maxWidth: '75%', textAlign: 'center' }}
-            />
-          </div>
-          <PostFullContent className="post-full-content">
-            <div className="user">
-              <h5 className="username">Gökçin Çaylar</h5>
-              <AccordionGokcin />
-            </div>
+function About() {
+    const Head = () => <title>Hizmetlerimiz</title>
+    return (
+        <IndexLayout>
+            <Head />
+            <Wrapper css={PageTemplate}>
+                <header className="site-archive-header no-image" css={[SiteHeader, SiteArchiveHeader]}>
+                    <div css={[outer, SiteNavMain]}>
+                        <div css={inner}>
+                            <SiteNav isHome={false} />
+                        </div>
+                    </div>
+                </header>
+                <main id="site-main" className="site-main" css={[SiteMain, outer]}>
+                    <div css={inner}>
+                        <article className="post page" css={[PostFull, NoImage]}>
+                            <PostFullHeader className="post-full-header">
+                                <PostFullTitle className="post-full-title">Hizmetlerimiz</PostFullTitle>
+                            </PostFullHeader>
 
-            <div className="user">
-              <h5 className="username">Zeliha Özata</h5>
-              <AccordionZeliha />
-            </div>
-
-            <div className="user">
-              <h5 className="username">Ecem Tüzen</h5>
-              <AccordionEcem />
-            </div>
-          </PostFullContent>
-        </article>
-      </main>
-      <Footer />
-    </Wrapper>
-  </IndexLayout>
-);
+                            <PostFullContent className="post-full-content">
+                                <div className="post-content">
+                                    <h5>
+                                        A starter template for Gatsby <br /> GitHub:{' '}
+                                        <a href="https://github.com/scttcper/gatsby-casper">scttcper/gatsby-casper</a>
+                                    </h5>
+                                    <p>
+                                        Özel Rozet Aile Danışma Merkezi, Uzman Klinik Psikolog Gökçin Çaylar ve Uzman
+                                        Psikolog Zeliha Özata tarafından 2018 yılında kurulmuştur. 2007 yılında yolları
+                                        Uludağ Üniversitesi Hastanesi’nde kesişen iki psikolog iki yıl aynı hastanede
+                                        çalışmışlardır. Yolları yıllar sonra aynı dönemde dünyaya getirdikleri çocukları ile
+                                        birlikte mesleki hayatlarına farklı bir yön verme isteklerinin ortaklığında tekrar
+                                        kesişmiştir.{' '}
+                                    </p>
+                                    <p>
+                                        Özel Rozet Aile Danışma Merkezi, psikolojinin daha geniş kitlelere yayılması için
+                                        aile danışmanlığı, bireysel danışmanlık ve kurumsal danışmanlık alanlarında güncel
+                                        bilimsel bilgilerin ışığında hizmet vermeyi amaçlamaktadır.
+                                    </p>
+                                </div>
+                            </PostFullContent>
+                        </article>
+                    </div>
+                </main>
+                <Footer />
+            </Wrapper>
+        </IndexLayout>
+    );
+}
 
 export default About;

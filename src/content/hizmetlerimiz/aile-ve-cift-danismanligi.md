@@ -2,16 +2,17 @@
 type: page
 layout: post
 title: "Aile ve Çift Danışmanlığı"
-author: Rozet
+author: [Rozet]
 tags: ["Hizmetlerimiz"]
 image: img/family.jpg
 date: "2018-05-07T23:46:37.121Z"
 draft: false
+excerpt: Aile içi iletişimin önemi ve sağlıklı iletişim becerilerini geliştirmenin yollarını keşfedin. Aile ilişkilerinde daha derin bağlar oluşturmanın ve anlayışı artırmanın önemini öğrenin.
 ---
 
 Aile ve çiftler arasında yaşanan sorunlarda, tüm aile üyelerinin gelişimini destekleyecek şekilde ilişkilerin geliştirilmesi ve yaşanan çatışmaların çözülmesi amaçlanmaktadır.
 
-Çift ve aile danışmanlığında bireyden çok eş ve aile üyeleri arasındaki ilişkiye odaklanılır. Amaç, aile içi iletişim ile empati ve uyumu arttırarak ilişkiyi yeniden düzenlemektir. 
+Çift ve aile danışmanlığında bireyden çok eş ve aile üyeleri arasındaki ilişkiye odaklanılır. Amaç, aile içi iletişim ile empati ve uyumu arttırarak ilişkiyi yeniden düzenlemektir.
 
 - Evlilik öncesi sorunlar
 - Evliliğe hazırlık

@@ -1,67 +1,87 @@
+import React from 'react';
+import { css } from '@emotion/react';
 import { graphql } from 'gatsby';
-import IndexLayout from '../layouts';
-import Wrapper from '../components/Wrapper';
-import SiteNav from '../components/header/SiteNav';
-import { SiteHeader, outer, inner, SiteMain } from '../styles/shared';
-import * as React from 'react';
-import { css } from '@emotion/core';
 
-import { PostFullHeader, PostFullTitle, NoImage, PostFull } from '../templates/post';
+import { Footer } from '../components/Footer';
+import SiteNav from '../components/header/SiteNav';
 import { PostFullContent } from '../components/PostContent';
-import Footer from '../components/Footer';
-import Helmet from 'react-helmet';
+import { PostCard } from '../components/PostCard';
+import { Wrapper } from '../components/Wrapper';
+import IndexLayout from '../layouts';
 import {
+  inner,
+  outer,
   PostFeed,
   PostFeedRaise,
-  SiteDescription,
-  SiteHeaderContent,
-  SiteTitle,
+  SiteArchiveHeader,
+  SiteHeader,
+  SiteMain,
+  SiteNavMain,
 } from '../styles/shared';
-import { PageContext } from '../templates/post';
-import PostCard from '../components/PostCard';
+import { NoImage, PostFull, PostFullHeader, PostFullTitle } from '../templates/post';
+import type { PageContext } from '../templates/post';
+import { colors } from '../styles/colors';
 
 const PageTemplate = css`
   .site-main {
-    background: #fff;
+    margin-top: 64px;
     padding-bottom: 4vw;
+    background: #fff;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .site-main {
+      /* background: var(--darkmode); */
+      background: ${colors.darkmode};
+    }
+  }
+  .post-full-header {
+    text-align: center;
   }
 `;
 
-export interface IndexProps {
+export type IndexProps = {
+  children: React.ReactNode;
+  pageContext: {
+    currentPage: number;
+    numPages: number;
+  };
   data: {
+    logo: any;
+    header: any;
     allMarkdownRemark: {
-      edges: {
+      edges: Array<{
         node: PageContext;
-      }[];
+      }>;
     };
   };
-}
+};
 
-
-const About: React.FunctionComponent<IndexProps> = props => {
+function About(props: IndexProps) {
+  const Head = () => <title>Hizmetlerimiz</title>
   return (
     <IndexLayout>
-      <Helmet>
-        <title>Hizmetlerimiz</title>
-      </Helmet>
+      <Head />
       <Wrapper css={PageTemplate}>
-        <header css={[outer, SiteHeader]}>
-          <div css={inner}>
-            <SiteNav />
+        <header className="site-archive-header no-image" css={[SiteHeader, SiteArchiveHeader]}>
+          <div css={[outer, SiteNavMain]}>
+            <div css={inner}>
+              <SiteNav isHome={false} />
+            </div>
           </div>
         </header>
         <main id="site-main" className="site-main" css={[SiteMain, outer]}>
           <article className="post page" css={[PostFull, NoImage]}>
-            <PostFullHeader>
-              <PostFullTitle>Hizmetlerimiz</PostFullTitle>
+            <PostFullHeader className="post-full-header">
+              <PostFullTitle className="post-full-title">Hizmetlerimiz</PostFullTitle>
             </PostFullHeader>
 
             <PostFullContent className="post-full-content">
               <div className="post-content">
                 <blockquote>
                   <p>
-                  Özel Rozet Aile Danışma Merkezi’nde alanında uzman psikologlar tarafından, yetişkin danışmanlığı, aile ve çift danışmanlığı, çocuk ve ergen danışmanlığı, zeka ve gelişim testleri, okumayı güçlendirme ve dikkat geliştirme programı başta olmak üzere; kurumsal alanda danışmanlık ve eğitimler verilmektedir.
-                </p>
+                    Özel Rozet Aile Danışma Merkezi’nde alanında uzman psikologlar tarafından, yetişkin danışmanlığı, aile ve çift danışmanlığı, çocuk ve ergen danışmanlığı, zeka ve gelişim testleri, okumayı güçlendirme ve dikkat geliştirme programı başta olmak üzere; kurumsal alanda danışmanlık ve eğitimler verilmektedir.
+                  </p>
                 </blockquote>
               </div>
             </PostFullContent>
@@ -84,49 +104,60 @@ const About: React.FunctionComponent<IndexProps> = props => {
       </Wrapper>
     </IndexLayout>
   );
-};
+}
 
 export default About;
 
 export const pageQuery = graphql`
-  query {
+  query blogPageQuery($skip: Int, $limit: Int) {
+    logo: file(relativePath: { eq: "img/logo.png" }) {
+      childImageSharp {
+        gatsbyImageData(layout: FIXED)
+      }
+    }
+    header: file(relativePath: { eq: "img/stas-kulesh-55191-unsplash.jpg" }) {
+      childImageSharp {
+        gatsbyImageData(width: 2000, quality: 100, layout: FIXED, formats: [AUTO, WEBP, AVIF])
+      }
+    }
     allMarkdownRemark(
-      filter: {
-        frontmatter: { type: { eq: "page" } }
-      },
-      limit: 1000, sort: { fields: [frontmatter___date], order: ASC }) {
+      sort: { frontmatter: { date: ASC } }
+      filter: { frontmatter: {
+        draft: { ne: true },
+        type: { eq: "page"}
+      }}
+      limit: $limit
+      skip: $skip
+    ) {
       edges {
         node {
-          timeToRead
           frontmatter {
             type
             title
             date
             tags
             draft
+            excerpt
             image {
               childImageSharp {
-                fluid(maxWidth: 3720) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(layout: FULL_WIDTH, formats: [AUTO, WEBP, AVIF])
               }
             }
             author {
-              id
+              name
               bio
               avatar {
-                children {
-                  ... on ImageSharp {
-                    fixed(quality: 90) {
-                      src
-                    }
-                  }
+                childImageSharp {
+                  gatsbyImageData(layout: FULL_WIDTH, breakpoints: [40, 80, 120])
                 }
               }
             }
           }
           excerpt
           fields {
+            readingTime {
+              text
+            }
             layout
             slug
           }
@@ -135,3 +166,4 @@ export const pageQuery = graphql`
     }
   }
 `;
+

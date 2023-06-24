@@ -1,9 +1,9 @@
 ---
-type: article
 layout: post
 title: "Neden Yavaş Yemek Yemeliyiz?"
-author: Ecem Tüzen
-tags: ["beslenme"]
+author: [Ecem Tüzen]
+tags:
+    - Beslenme
 image: img-mak/pablo-merchan-montes-Orz90t6o0e4-unsplash.jpg
 date: "2019-07-06T10:00:00.000Z"
 draft: false
@@ -25,4 +25,4 @@ Nasıl yavaş yeme alışkanlığını kazanabiliriz?
 - Yüksek lifli, sebze meyve gibi besinlerin çiğnenmesi daha uzun süre alır. Bu sebeple yemeklerinizde bu besinleri bulundurmaya özen gösterin.
 - Fastfood tarzı elle yenilebilecek besinleri tercih etmeyin.
 - Fasulye, nohut, barbunya, makarna gibi besinleri kaşıkla yemek yerine çatalla yiyebilirsiniz. Böylece kaşığa doldurabileceğiniz miktardan daha azını alacağınız için daha yavaş yemiş olursunuz.
-- Etrafınızda birlikte yediğiniz insanların da nasıl yediğinden etkilenebilirsiniz. Yanınızda hızlı yiyen birisi varsa fark etmeden siz de hızlı yiyor olabilirsiniz. O yüzden yanınızda yemek yediğiniz kişilerle birlikte yavaş yemeye başlayabilir, birbirinizi uyarabilirsiniz. 
+- Etrafınızda birlikte yediğiniz insanların da nasıl yediğinden etkilenebilirsiniz. Yanınızda hızlı yiyen birisi varsa fark etmeden siz de hızlı yiyor olabilirsiniz. O yüzden yanınızda yemek yediğiniz kişilerle birlikte yavaş yemeye başlayabilir, birbirinizi uyarabilirsiniz.

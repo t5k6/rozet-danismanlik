@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/restrict-plus-operands, @typescript-eslint/no-var-requires */
 const path = require('path');
 const _ = require('lodash');
+const readingTime = require('reading-time');
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
@@ -8,6 +10,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   // interpreter if not a single content uses it. Therefore, we're putting them
   // through `createNodeField` so that the fields still exist and GraphQL won't
   // trip up. An empty string is still required in replacement to `null`.
+  // eslint-disable-next-line default-case
   switch (node.internal.type) {
     case 'MarkdownRemark': {
       const { permalink, layout, primaryTag } = node.frontmatter;
@@ -38,6 +41,12 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
         name: 'primaryTag',
         value: primaryTag || '',
       });
+
+      createNodeField({
+        node,
+        name: 'readingTime',
+        value: readingTime(node.rawMarkdownBody),
+      });
     }
   }
 };
@@ -49,44 +58,38 @@ exports.createPages = async ({ graphql, actions }) => {
     {
       allMarkdownRemark(
         limit: 2000
-        sort: { fields: [frontmatter___date], order: ASC }
+        sort: { frontmatter: { date: ASC } }
+        filter: { frontmatter: { draft: { ne: true } } }
       ) {
         edges {
           node {
             excerpt
-            timeToRead
             frontmatter {
               type
               title
               tags
               date
               draft
+              excerpt
               image {
                 childImageSharp {
-                  fluid(maxWidth: 3720) {
-                    aspectRatio
-                    base64
-                    sizes
-                    src
-                    srcSet
-                  }
+                  gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
                 }
               }
               author {
-                id
+                name
                 bio
                 avatar {
-                  children {
-                    ... on ImageSharp {
-                      fixed(quality: 90) {
-                        src
-                      }
-                    }
+                  childImageSharp {
+                    gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
                   }
                 }
               }
             }
             fields {
+              readingTime {
+                text
+              }
               layout
               slug
             }
@@ -97,6 +100,7 @@ exports.createPages = async ({ graphql, actions }) => {
         edges {
           node {
             id
+            name
           }
         }
       }
@@ -110,6 +114,25 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Create post pages
   const posts = result.data.allMarkdownRemark.edges;
+
+  // Create paginated index
+  // TODO: new pagination
+  const postsPerPage = 1000;
+  const numPages = Math.ceil(posts.length / postsPerPage);
+
+  Array.from({ length: numPages }).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? '/' : `/${i + 1}`,
+      component: path.resolve('./src/templates/index.tsx'),
+      context: {
+        limit: postsPerPage,
+        skip: i * postsPerPage,
+        numPages,
+        currentPage: i + 1,
+      },
+    });
+  });
+
   posts.forEach(({ node }, index) => {
     const { slug, layout } = node.fields;
     const prev = index === 0 ? null : posts[index - 1].node;
@@ -141,9 +164,9 @@ exports.createPages = async ({ graphql, actions }) => {
   const tagTemplate = path.resolve('./src/templates/tags.tsx');
   const tags = _.uniq(
     _.flatten(
-      result.data.allMarkdownRemark.edges.map(edge => {
-        return _.castArray(_.get(edge, 'node.frontmatter.tags', []));
-      }),
+      result.data.allMarkdownRemark.edges.map(edge =>
+        _.castArray(_.get(edge, 'node.frontmatter.tags', [])),
+      ),
     ),
   );
   tags.forEach(tag => {
@@ -157,13 +180,13 @@ exports.createPages = async ({ graphql, actions }) => {
   });
 
   // Create author pages
-  const authorTemplate = path.resolve('./src/templates/yazar.tsx');
+  const authorTemplate = path.resolve('./src/templates/author.tsx');
   result.data.allAuthorYaml.edges.forEach(edge => {
     createPage({
-      path: `/yazar/${_.kebabCase(edge.node.id)}/`,
+      path: `/author/${_.kebabCase(edge.node.name)}/`,
       component: authorTemplate,
       context: {
-        author: edge.node.id,
+        author: edge.node.name,
       },
     });
   });
@@ -171,13 +194,9 @@ exports.createPages = async ({ graphql, actions }) => {
 
 exports.onCreateWebpackConfig = ({ stage, actions }) => {
   // adds sourcemaps for tsx in dev mode
-  if (stage === `develop` || stage === `develop-html`) {
+  if (stage === 'develop' || stage === 'develop-html') {
     actions.setWebpackConfig({
       devtool: 'eval-source-map',
     });
   }
-};
-
-if (process.env.NODE_ENV === 'development') {
-  process.env.GATSBY_WEBPACK_PUBLICPATH = '/'
 };

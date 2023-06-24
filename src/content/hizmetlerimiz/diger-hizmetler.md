@@ -2,7 +2,7 @@
 type: page
 layout: post
 title: "Verdiğimiz Diğer Hizmetler"
-author: Rozet
+author: [Rozet]
 tags: ["Hizmetlerimiz"]
 image: img/books.jpg
 date: "2018-06-11T23:46:37.121Z"

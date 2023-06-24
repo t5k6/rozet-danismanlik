@@ -12,7 +12,6 @@ import {
   inner,
   outer,
   PostFeed,
-  PostFeedRaise,
   SiteArchiveHeader,
   SiteHeader,
   SiteMain,
@@ -24,8 +23,7 @@ import { colors } from '../styles/colors';
 
 const PageTemplate = css`
   .site-main {
-    margin-top: 64px;
-    padding-bottom: 4vw;
+    margin-top: 40px;
     background: #fff;
   }
 
@@ -38,6 +36,7 @@ const PageTemplate = css`
   .post-full-header {
     text-align: center;
   }
+
 `;
 
 export type IndexProps = {
@@ -87,7 +86,7 @@ function About(props: IndexProps) {
             </PostFullContent>
           </article>
           <div css={inner}>
-            <div css={[PostFeed, PostFeedRaise]}>
+            <div css={[PostFeed]} style={{ gap: "12px" }}>
               {props.data.allMarkdownRemark.edges.map(post => {
                 // filter out drafts in production
                 return (

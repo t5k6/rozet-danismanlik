@@ -5,7 +5,6 @@ import { Footer } from '../components/Footer';
 import SiteNav from '../components/header/SiteNav';
 import { PostFullContent } from '../components/PostContent';
 import { Wrapper } from '../components/Wrapper';
-import Grid from '../components/helper/grid'
 import IndexLayout from '../layouts';
 import {
     inner,
@@ -19,11 +18,30 @@ import { NoImage, PostFull, PostFullHeader, PostFullTitle } from '../templates/p
 import { colors } from '../styles/colors';
 
 const PageTemplate = css`
-  .site-main {
-    margin-top: 64px;
-    padding-bottom: 4vw;
-    background: #fff;
-  }
+    .site-main {
+        margin-top: 40px;
+        padding-bottom: 1vw;
+        background: #fff;
+    }
+
+    .contactGrid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-column-gap: 5em;
+        grid-row-gap: 0px;
+        margin-top: 1em;
+        text-align: left;
+    }
+
+    .contact1 { grid-area: 1 / 1 / 2 / 2; }
+    .contact2 { grid-area: 2 / 1 / 3 / 2; }
+    .contact3 { grid-area: 1 / 2 / 2 / 3; }
+    .contact4 { grid-area: 2 / 2 / 3 / 3; }
+
+    .post-full-content {
+        padding: 0 100px 0;
+    }
 
   @media (prefers-color-scheme: dark) {
     .site-main {
@@ -65,28 +83,30 @@ function About() {
                                         sandbox="allow-scripts"
                                     />
                                     <br />
-                                    <Grid
-                                        width={320} gap={24} style={{ marginTop: '1em' }}>
-                                        <div style={{ textAlign: 'left' }}>
+                                    <div className='contactGrid'>
+                                        <div className='contact1'>
                                             <strong>Açık Adresimiz: </strong>
                                             <p>
                                                 <address>🏢 Yüzüncüyıl, Arkat Plaza Bursa, İzmir Yolu Cd 12. Blok A, No: 3, 16120 Nilüfer/Bursa</address>
                                             </p>
+                                        </div>
+                                        <div className='contact2'>
                                             <strong>Email:</strong><p> <span>📧 info</span>
                                                 <span>@</span>
                                                 <span>rozetdanismanlik.com</span></p>
                                         </div>
-                                        <div style={{ textAlign: 'left' }}>
+                                        <div className='contact3'>
                                             <strong>Çalışma Saatleri: </strong>
-                                            <p>Haftaiçi: 🕘 09:00 - 🕕 18:00
+                                            <p>Haftaiçi   : 🕘 09:00 - 🕕 18:00
                                                 <br />
                                                 Haftasonu: 🕘 09:00 - 🕓 16:00
                                                 <br /></p>
-                                            <strong>Telefon Numaramız: </strong><p><a href="tel:+905432201816">📞 0543 220 18 16</a></p>
-
                                         </div>
+                                        <div className='contact4'>
+                                            <strong>Telefon Numaramız: </strong><p><a href="tel:+905432201816">📞 0543 220 18 16</a></p>
+                                        </div>
+                                    </div>
 
-                                    </Grid>
                                 </div>
                             </PostFullContent>
                         </article>

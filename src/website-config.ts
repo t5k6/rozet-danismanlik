@@ -59,7 +59,7 @@ export type WebsiteConfig = {
 
 const config: WebsiteConfig = {
   title: "Özel Rozet Aile Danışma Merkezi",
-  description: "Rozet ile hayatınıza değer katın",
+  description: "Hayatınıza değer katın",
   coverImage: "img/stas-kulesh-55191-unsplash.jpg",
   logo: "img/logo.png",
   lang: "tr",

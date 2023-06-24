@@ -20,9 +20,12 @@ import { colors } from '../styles/colors';
 
 const PageTemplate = css`
   .site-main {
-    margin-top: 64px;
-    padding-bottom: 4vw;
+    margin-top: 40px;
     background: #fff;
+  }
+
+  .post-title {
+    padding: 40px 170px 20px;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -49,7 +52,7 @@ function About() {
         <main id="site-main" className="site-main" css={[SiteMain, outer]}>
           <div css={inner}>
             <article className="post page" css={[PostFull, NoImage]}>
-              <PostFullHeader>
+              <PostFullHeader className="post-title">
                 <PostFullTitle className="post-full-title">Hakkımızda</PostFullTitle>
               </PostFullHeader>
 
@@ -73,7 +76,7 @@ function About() {
                     Rozet Aile Danışma Merkezi olarak, her bireyin benzersiz olduğunu ve her durumun özgün olduğunu anlarız. Kişiselleştirilmiş yaklaşımlar kullanarak, her bir müşterinin ihtiyaçlarına uygun çözümler sunarız. Sizlere, güvenli bir ortamda destek olmak ve sağlıklı bir yaşam sürmeniz için araçlar sağlamak için buradayız.
                   </p>
                   <p>
-                    Danışmanlık hizmetlerimizle ilgili daha fazla bilgi almak veya randevu almak için lütfen bizimle <Link to="/">iletişime</Link> geçin. Size yardımcı olmaktan memnuniyet duyarız.
+                    Danışmanlık hizmetlerimizle ilgili daha fazla bilgi almak veya randevu almak için lütfen bizimle <Link to="/iletisim">iletişime</Link> geçin. Size yardımcı olmaktan memnuniyet duyarız.
                   </p>
                 </div>
               </PostFullContent>

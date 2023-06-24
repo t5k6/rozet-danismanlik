@@ -196,7 +196,7 @@ function Author({ data, location }: AuthorTemplateProps) {
         </header>
         <main id="site-main" css={[SiteMain, outer]}>
           <div css={inner}>
-            <div css={[PostFeed]}>
+            <div css={[PostFeed]} style={{ gap: "12px" }}>
               {edges.map(({ node }) => (
                 <PostCard key={node.fields.slug} post={node} />
               ))}

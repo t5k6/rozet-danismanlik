@@ -53,6 +53,7 @@ export const SiteDescription = styled.h2`
   margin: 0;
   padding: 5px 0;
   font-size: 2.1rem;
+  font-style: italic;
   line-height: 1.4em;
   font-weight: 400;
   opacity: 0.8;

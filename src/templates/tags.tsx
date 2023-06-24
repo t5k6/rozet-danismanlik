@@ -102,9 +102,9 @@ function Tags({ pageContext, data, location }: TagTemplateProps) {
                   tagData.node.description
                 ) : (
                   <>
-                    A collection of {totalCount > 1 && `${totalCount} posts`}
-                    {totalCount === 1 && '1 post'}
-                    {totalCount === 0 && 'No posts'}
+                    {totalCount > 1 && `${totalCount} makale`}
+                    {totalCount === 1 && '1 makale'}
+                    {totalCount === 0 && 'Makale yok'}
                   </>
                 )}
               </SiteDescription>
@@ -113,7 +113,7 @@ function Tags({ pageContext, data, location }: TagTemplateProps) {
         </header>
         <main id="site-main" css={[SiteMain, outer]}>
           <div css={inner}>
-            <div css={[PostFeed]}>
+            <div css={[PostFeed]} style={{ gap: "12px" }}>
               {edges.map(({ node }) => (
                 <PostCard key={node.fields.slug} post={node} />
               ))}

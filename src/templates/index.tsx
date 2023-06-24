@@ -94,7 +94,7 @@ function IndexPage(props: IndexProps) {
               <SiteTitle className="site-title">
                 {props.data.logo ? (
                   <img
-                    style={{ maxHeight: '55px', height: '55px' }}
+                    style={{ maxHeight: '75px', height: '75px' }}
                     src={getSrc(props.data.logo)}
                     alt={config.title}
                   />
@@ -135,7 +135,7 @@ function IndexPage(props: IndexProps) {
 
 export const pageQuery = graphql`
   query blogPageQuery($skip: Int!, $limit: Int!) {
-    logo: file(relativePath: { eq: "img/logo.png" }) {
+    logo: file(relativePath: { eq: "img/rozet-logo.png" }) {
       childImageSharp {
         gatsbyImageData(layout: FIXED)
       }

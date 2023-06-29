@@ -1,9 +1,10 @@
 ---
 type: article
 layout: post
-title: "EMDR Terapi Nedir"
+title: EMDR Terapi Nedir
 author: [Zeliha Özata]
-tags: ["EMDR"]
+tags:
+    - EMDR
 image: img-mak/patrick-brinksma-382458-eyes.jpg
 date: "2018-12-06T10:00:00.000Z"
 draft: false

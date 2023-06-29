@@ -174,7 +174,7 @@ export const pageQuery = graphql`
           }
           fields {
             readingTime {
-              text
+              minutes
             }
             layout
             slug

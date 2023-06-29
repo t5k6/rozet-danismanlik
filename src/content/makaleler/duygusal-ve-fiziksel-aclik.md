@@ -1,9 +1,10 @@
 ---
 type: article
 layout: post
-title: "Dugusal ve Fiziksel Açlık"
+title: Duygusal ve Fiziksel Açlık
 author: [Ecem Tüzen]
-tags: ["beslenme"]
+tags:
+    - beslenme
 image: img-mak/thought-catalog-fnztlIb52gU-unsplash.jpg
 date: "2019-06-06T10:00:00.000Z"
 draft: false

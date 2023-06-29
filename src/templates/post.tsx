@@ -1,18 +1,18 @@
 import { format } from 'date-fns';
 import { graphql, Link } from 'gatsby';
 import { GatsbyImage, getSrc, getImage } from 'gatsby-plugin-image';
-import { kebabCase } from 'lodash-es';
 import { lighten, setLightness } from 'polished';
 import React from 'react';
 
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
+import { kebabCase, replaceTurkishLetters } from '../components/helpers/utils';
 import { Footer } from '../components/Footer';
 import SiteNav, { SiteNavMain } from '../components/header/SiteNav';
 import PostContent from '../components/PostContent';
 import { ReadNext } from '../components/ReadNext';
-import { Subscribe } from '../components/subscribe/Subscribe';
+//import { Subscribe } from '../components/subscribe/Subscribe';
 import { Wrapper } from '../components/Wrapper';
 import IndexLayout from '../layouts';
 import { colors } from '../styles/colors';
@@ -44,7 +44,7 @@ type PageTemplateProps = {
       };
       fields: {
         readingTime: {
-          text: string;
+          minutes: string;
         };
       };
     };
@@ -75,7 +75,7 @@ export type PageContext = {
   fields: {
     slug: string;
     readingTime: {
-      text: string;
+      minutes: string;
     };
   };
   frontmatter: {
@@ -205,7 +205,7 @@ function PageTemplate({ data, pageContext, location }: PageTemplateProps) {
                     <section className="post-full-byline-meta">
                       <h4 className="author-name">
                         {post.frontmatter.author.map(author => (
-                          <Link key={author.name} to={`/author/${kebabCase(author.name)}/`}>
+                          <Link key={author.name} to={`/yazar/${kebabCase(author.name)}/`}>
                             {author.name}
                           </Link>
                         ))}
@@ -216,7 +216,7 @@ function PageTemplate({ data, pageContext, location }: PageTemplateProps) {
                         </time>
                         <span className="byline-reading-time">
                           <span className="bull">&bull;</span>
-                          {post.fields.readingTime.text}
+                          {post.fields.readingTime.minutes}
                         </span>
                       </div>
                     </section>
@@ -236,7 +236,7 @@ function PageTemplate({ data, pageContext, location }: PageTemplateProps) {
               <PostContent htmlAst={post.htmlAst} />
 
               {/* The big email subscribe modal content */}
-              {config.showSubscribe && <Subscribe title={config.title} />}
+              {/* {config.showSubscribe && <Subscribe title={config.title} />} */}
             </article>
           </div>
         </main>
@@ -365,6 +365,7 @@ const PostFullByline = styled.div`
     line-height: 1.2em;
     letter-spacing: 0.2px;
     text-transform: uppercase;
+    text-align: start;
   }
 
   .post-full-byline-meta h4 {
@@ -449,7 +450,7 @@ export const query = graphql`
       excerpt
       fields {
         readingTime {
-          text
+          minutes
         }
       }
       frontmatter {
@@ -490,7 +491,7 @@ export const query = graphql`
           }
           fields {
             readingTime {
-              text
+              minutes
             }
             slug
           }

@@ -11,7 +11,14 @@ type IndexProps = {
 };
 
 function IndexLayout(props: IndexProps) {
-  const Head = () => <link rel="icon" href={favicon} type="image/x-icon" />
+  const Head = () => {
+    return (
+      <>
+        <meta name="viewport" content="initial-scale=1, user-scalable=no, viewport-fit=cover, width=device-width"></meta>
+        <link rel="icon" href={favicon} type="image/x-icon" />
+      </>)
+  }
+
   return (
     <div className={props.className}>
       <Head />

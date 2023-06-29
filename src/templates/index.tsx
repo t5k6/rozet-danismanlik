@@ -26,6 +26,7 @@ import {
 } from '../styles/shared';
 import config from '../website-config';
 import type { PageContext } from './post';
+import Slogan from '../components/helpers/utils';
 
 export type IndexProps = {
   children: React.ReactNode;
@@ -94,7 +95,7 @@ function IndexPage(props: IndexProps) {
               <SiteTitle className="site-title">
                 {props.data.logo ? (
                   <img
-                    style={{ maxHeight: '75px', height: '75px' }}
+                    style={{ maxHeight: '75px', height: '75px', backgroundColor: '#d3d3d333', borderRadius: '15px' }}
                     src={getSrc(props.data.logo)}
                     alt={config.title}
                   />
@@ -102,7 +103,8 @@ function IndexPage(props: IndexProps) {
                   config.title
                 )}
               </SiteTitle>
-              <SiteDescription css={bgShadow}>{config.description}</SiteDescription>
+              <SiteDescription css={bgShadow}><Slogan animDuration={3} /></SiteDescription>
+              {/* <SiteDescription css={bgShadow}>{config.description}</SiteDescription> */}
             </SiteHeaderContent>
           </div>
         </div>
@@ -142,7 +144,7 @@ export const pageQuery = graphql`
     }
     header: file(relativePath: { eq: "img/stas-kulesh-55191-unsplash.jpg" }) {
       childImageSharp {
-        gatsbyImageData(width: 2000, quality: 100, layout: FIXED, formats: [AUTO, WEBP, AVIF])
+        gatsbyImageData(width: 2000, quality: 85, layout: FIXED, formats: [AUTO, WEBP, AVIF])
       }
     }
     allMarkdownRemark(
@@ -177,7 +179,7 @@ export const pageQuery = graphql`
           excerpt
           fields {
             readingTime {
-              text
+              minutes
             }
             layout
             slug

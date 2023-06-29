@@ -1,13 +1,13 @@
 import { format } from 'date-fns';
 import { Link } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { kebabCase } from 'lodash';
 import { lighten } from 'polished';
 import React from 'react';
 
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
+import { kebabCase, replaceTurkishLetters } from '../components/helpers/utils';
 import { colors } from '../styles/colors';
 import type { PageContext } from '../templates/post';
 import { AuthorList } from './AuthorList';
@@ -77,14 +77,14 @@ export function PostCard({ post, isLarge = false }: PostCardProps) {
             <span>
               {post.frontmatter.author.map((author, index) => (
                 <React.Fragment key={author.name}>
-                  <Link to={`/author/${kebabCase(author.name)}/`}>{author.name}</Link>
+                  <Link to={`/yazar/${kebabCase(author.name)}/`}>{author.name}</Link>
                   {post.frontmatter.author.length - 1 > index && ', '}
                 </React.Fragment>
               ))}
             </span>
             <span className="post-card-byline-date">
               <time dateTime={datetime}>{displayDatetime}</time>{' '}
-              <span className="bull">&bull;</span> {post.fields.readingTime.text}
+              <span className="bull">&bull;</span> {Math.ceil(+post.fields.readingTime.minutes)} dk okuma süresi
             </span>
           </PostCardBylineContent>
         </PostCardMeta>

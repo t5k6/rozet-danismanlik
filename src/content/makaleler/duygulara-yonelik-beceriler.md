@@ -1,9 +1,10 @@
 ---
 type: article
 layout: post
-title: "Duygulara Yönelik Beceriler"
+title: Duygulara Yönelik Beceriler
 author: [Gökçin Çaylar]
-tags: ["duygular"]
+tags:
+    - duygular
 image: img-mak/hean-prinsloo-715097-unsplash.jpg
 date: "2018-12-06T10:00:00.000Z"
 draft: false

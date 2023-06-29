@@ -11,7 +11,7 @@ import config from '../../website-config';
 import { Facebook } from '../icons/facebook';
 import { Instagram } from '../icons/instagram';
 import { Twitter } from '../icons/twitter';
-import { SubscribeModal } from '../subscribe/SubscribeModal';
+//import { SubscribeModal } from '../subscribe/SubscribeModal';
 import { SiteNavLogo } from './SiteNavLogo';
 
 type SiteNavProps = {
@@ -25,17 +25,17 @@ type SiteNavState = {
 };
 
 class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
-  subscribe = React.createRef<SubscribeModal>();
+  //subscribe = React.createRef<SubscribeModal>();
   titleRef = React.createRef<HTMLSpanElement>();
   lastScrollY = 0;
   ticking = false;
   state = { showTitle: false };
 
-  openModal = () => {
-    if (this.subscribe.current) {
-      this.subscribe.current.open();
-    }
-  };
+  // openModal = () => {
+  //   if (this.subscribe.current) {
+  //     this.subscribe.current.open();
+  //   }
+  // };
 
   componentDidMount(): void {
     this.lastScrollY = window.scrollY;
@@ -84,7 +84,7 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
     const { isHome = false, isPost = false, post = {} } = this.props;
     return (
       <>
-        {config.showSubscribe && <SubscribeModal ref={this.subscribe} />}
+        {/* {config.showSubscribe && <SubscribeModal ref={this.subscribe} />} */}
         <nav css={[SiteNavStyles, bgShadow]}>
           <SiteNavLeft className="site-nav-left">
             {!isHome && <SiteNavLogo />}
@@ -96,7 +96,7 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
                   </Link>
                 </li>
                 <li role="menuitem">
-                  <Link to="/about" activeClassName="nav-current">
+                  <Link to="/hakkimizda" activeClassName="nav-current">
                     Hakkımızda
                   </Link>
                 </li>
@@ -190,26 +190,29 @@ const SiteNavStyles = css`
   height: 64px;
   font-size: 1.3rem;
 
-  // @media (max-width: 700px) {
-  //   font-size: 1rem;
-  // }
+  @media (max-width: 700px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const SiteNavLeft = styled.div`
   flex: 1 0 auto;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
+  padding: 10px 0;
+  height: 64px;
   overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
-  margin-right: 10px;
-  padding: 10px 0 80px;
+  // margin-right: 10px;
+  // padding: 10px 0 80px;
   font-weight: 500;
   letter-spacing: 0.2px;
   text-transform: uppercase;
   white-space: nowrap;
 
-  -ms-overflow-scrolling: touch;
+  // -ms-overflow-scrolling: touch;
 
   @media (max-width: 700px) {
     margin-right: 0;
@@ -272,6 +275,13 @@ const NavStyles = css`
   .nav-current {
     opacity: 1;
   }
+
+  @media (max-width: 400px) {
+    margin: 0 0 0 -26px;
+    li a {
+      padding: 12px 8px;
+    }
+  }
 `;
 
 const SiteNavRight = styled.div`
@@ -293,22 +303,22 @@ const SocialLinks = styled.div`
   align-items: center;
 `;
 
-const SubscribeButton = styled.a`
-  display: block;
-  padding: 4px 10px;
-  margin: 0 0 0 10px;
-  border: #fff 1px solid;
-  color: #fff;
-  line-height: 1em;
-  border-radius: 10px;
-  opacity: 0.8;
+// const SubscribeButton = styled.a`
+//   display: block;
+//   padding: 4px 10px;
+//   margin: 0 0 0 10px;
+//   border: #fff 1px solid;
+//   color: #fff;
+//   line-height: 1em;
+//   border-radius: 10px;
+//   opacity: 0.8;
 
-  :hover {
-    text-decoration: none;
-    opacity: 1;
-    cursor: pointer;
-  }
-`;
+//   :hover {
+//     text-decoration: none;
+//     opacity: 1;
+//     cursor: pointer;
+//   }
+// `;
 
 const NavPostTitle = styled.span`
   visibility: hidden;

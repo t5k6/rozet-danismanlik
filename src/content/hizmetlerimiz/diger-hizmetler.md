@@ -6,6 +6,7 @@ author: [Rozet]
 tags: ["Hizmetlerimiz"]
 image: img/books.jpg
 date: "2018-06-11T23:46:37.121Z"
+excerpt: Prep Programı, Attentioner Programı, ve EMDR Tekniği
 draft: false
 ---
 

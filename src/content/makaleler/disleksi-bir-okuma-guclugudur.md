@@ -1,11 +1,13 @@
 ---
 type: article
 layout: post
-title: "Disleksi Bir Okuma Güçlüğüdür"
+title: Disleksi Bir Okuma Güçlüğüdür
 author: [Zeliha Özata]
-tags: ["disleksi"]
+tags:
+     - disleksi
 image: img-mak/annie-spratt-454816.jpg
 date: "2018-12-06T10:00:00.000Z"
+excerpt: Disleksi, Albert Einstein, Thomas Edison, Leonardo da Vinci gibi ünlü kişilerin de yaşadığı bir öğrenme güçlüğüdür.
 draft: false
 ---
 

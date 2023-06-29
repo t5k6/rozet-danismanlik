@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Neden Yavaş Yemek Yemeliyiz?"
+title: Neden Yavaş Yemek Yemeliyiz?
 author: [Ecem Tüzen]
 tags:
     - Beslenme

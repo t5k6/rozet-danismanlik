@@ -109,16 +109,6 @@ export default About;
 
 export const pageQuery = graphql`
   query blogPageQuery($skip: Int, $limit: Int) {
-    logo: file(relativePath: { eq: "img/logo.png" }) {
-      childImageSharp {
-        gatsbyImageData(layout: FIXED)
-      }
-    }
-    header: file(relativePath: { eq: "img/stas-kulesh-55191-unsplash.jpg" }) {
-      childImageSharp {
-        gatsbyImageData(width: 2000, quality: 100, layout: FIXED, formats: [AUTO, WEBP, AVIF])
-      }
-    }
     allMarkdownRemark(
       sort: { frontmatter: { date: ASC } }
       filter: { frontmatter: {
@@ -155,7 +145,7 @@ export const pageQuery = graphql`
           excerpt
           fields {
             readingTime {
-              text
+              minutes
             }
             layout
             slug

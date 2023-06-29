@@ -1,7 +1,16 @@
 /* eslint-disable @typescript-eslint/restrict-plus-operands, @typescript-eslint/no-var-requires */
 const path = require('path');
-const _ = require('lodash');
 const readingTime = require('reading-time');
+const { createFilePath } = require('gatsby-source-filesystem');
+
+// import kebabCase from ('./src/components/helpers/utils.tsx');
+// import replaceTurkishLetters from ('./src/components/helpers/utils.tsx');
+
+const kebabCase = str =>
+  str
+    .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
+    .join('-')
+    .toLowerCase();
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
@@ -11,43 +20,35 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   // through `createNodeField` so that the fields still exist and GraphQL won't
   // trip up. An empty string is still required in replacement to `null`.
   // eslint-disable-next-line default-case
-  switch (node.internal.type) {
-    case 'MarkdownRemark': {
-      const { permalink, layout, primaryTag } = node.frontmatter;
-      const { relativePath } = getNode(node.parent);
+  if (node.internal.type === 'MarkdownRemark') {
+    const { permalink, layout, primaryTag } = node.frontmatter;
+    const slug = permalink || createFilePath({ node, getNode });
 
-      let slug = permalink;
+    // Used to generate URL to view this content.
+    createNodeField({
+      node,
+      name: 'slug',
+      value: slug,
+    });
 
-      if (!slug) {
-        slug = `/${relativePath.replace('.md', '')}/`;
-      }
+    // Used to determine a page layout.
+    createNodeField({
+      node,
+      name: 'layout',
+      value: layout || '',
+    });
 
-      // Used to generate URL to view this content.
-      createNodeField({
-        node,
-        name: 'slug',
-        value: slug || '',
-      });
+    createNodeField({
+      node,
+      name: 'primaryTag',
+      value: primaryTag || '',
+    });
 
-      // Used to determine a page layout.
-      createNodeField({
-        node,
-        name: 'layout',
-        value: layout || '',
-      });
-
-      createNodeField({
-        node,
-        name: 'primaryTag',
-        value: primaryTag || '',
-      });
-
-      createNodeField({
-        node,
-        name: 'readingTime',
-        value: readingTime(node.rawMarkdownBody),
-      });
-    }
+    createNodeField({
+      node,
+      name: 'readingTime',
+      value: readingTime(node.rawMarkdownBody),
+    });
   }
 };
 
@@ -88,7 +89,7 @@ exports.createPages = async ({ graphql, actions }) => {
             }
             fields {
               readingTime {
-                text
+                minutes
               }
               layout
               slug
@@ -162,16 +163,15 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Create tag pages
   const tagTemplate = path.resolve('./src/templates/tags.tsx');
-  const tags = _.uniq(
-    _.flatten(
-      result.data.allMarkdownRemark.edges.map(edge =>
-        _.castArray(_.get(edge, 'node.frontmatter.tags', [])),
-      ),
-    ),
-  );
-  tags.forEach(tag => {
+  const tags = result.data.allMarkdownRemark.edges.reduce((allTags, { node }) => {
+    const { tags } = node.frontmatter;
+    return tags ? allTags.concat(tags) : allTags;
+  }, []);
+  const uniqueTags = [...new Set(tags)];
+
+  uniqueTags.forEach(tag => {
     createPage({
-      path: `/tags/${_.kebabCase(tag)}/`,
+      path: `/tags/${kebabCase(tag)}/`,
       component: tagTemplate,
       context: {
         tag,
@@ -181,12 +181,12 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Create author pages
   const authorTemplate = path.resolve('./src/templates/author.tsx');
-  result.data.allAuthorYaml.edges.forEach(edge => {
+  result.data.allAuthorYaml.edges.forEach(({ node }) => {
     createPage({
-      path: `/author/${_.kebabCase(edge.node.name)}/`,
+      path: decodeURIComponent(`/yazar/${kebabCase(node.name)}/`),
       component: authorTemplate,
       context: {
-        author: edge.node.name,
+        author: node.name,
       },
     });
   });

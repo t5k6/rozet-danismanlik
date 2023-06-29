@@ -6,6 +6,7 @@ author: [Rozet]
 tags: ["Hizmetlerimiz"]
 image: img/water.jpg
 date: "2018-05-06T23:46:37.121Z"
+excerpt:
 draft: false
 ---
 

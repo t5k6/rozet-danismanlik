@@ -226,7 +226,7 @@ export const pageQuery = graphql`
       }
       avatar {
         childImageSharp {
-          gatsbyImageData(quality: 100, breakpoints: [40, 80, 120], layout: FULL_WIDTH)
+          gatsbyImageData(quality: 90, breakpoints: [40, 80, 120], layout: FULL_WIDTH)
         }
       }
     }
@@ -261,7 +261,7 @@ export const pageQuery = graphql`
           }
           fields {
             readingTime {
-              text
+              minutes
             }
             layout
             slug

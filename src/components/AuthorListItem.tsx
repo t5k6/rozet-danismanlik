@@ -1,12 +1,12 @@
 import { Link } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { kebabCase } from 'lodash-es';
 import { lighten } from 'polished';
 import React, { useState } from 'react';
 
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
+import { kebabCase, replaceTurkishLetters } from '../components/helpers/utils';
 import { colors } from '../styles/colors';
 import type { Author } from '../templates/post';
 import { AuthorProfileImage } from './PostCard';
@@ -63,7 +63,7 @@ export function AuthorListItem(props: AuthorListItemProps) {
               <h2>{props.author.name}</h2>
               <p>{props.author.bio}</p>
               <p>
-                <Link to={`/author/${kebabCase(props.author.name)}/`}>Daha fazla gönderi</Link> by{' '}
+                <Link to={`/yazar/${kebabCase(props.author.name)}/`}>Yazarın diğer gönderileri</Link> | {' '}
                 {props.author.name}.
               </p>
             </div>
@@ -73,7 +73,7 @@ export function AuthorListItem(props: AuthorListItemProps) {
       <Link
         css={AuthorAvatar}
         className="author-avatar"
-        to={`/author/${kebabCase(props.author.name)}/`}
+        to={`/yazar/${kebabCase(props.author.name)}/`}
       >
         <GatsbyImage
           image={getImage(props.author.avatar)!}

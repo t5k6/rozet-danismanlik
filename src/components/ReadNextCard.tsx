@@ -2,7 +2,7 @@ import { Link } from 'gatsby';
 import React from 'react';
 import { lighten } from 'polished';
 import styled from '@emotion/styled';
-import { kebabCase } from 'lodash-es';
+import { kebabCase } from '../components/helpers/utils';
 import { format } from 'date-fns';
 
 import { colors } from '../styles/colors';

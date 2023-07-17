@@ -1,5 +1,5 @@
 import { graphql } from 'gatsby';
-import { getSrc, getImage } from 'gatsby-plugin-image';
+import { getSrc, getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import React from 'react';
 
 import { css } from '@emotion/react';
@@ -35,8 +35,8 @@ export type IndexProps = {
     numPages: number;
   };
   data: {
-    logo: any;
-    header: any;
+    logo: { gatsbyImageData: IGatsbyImageData };
+    header: { gatsbyImageData: IGatsbyImageData };
     allMarkdownRemark: {
       edges: Array<{
         node: PageContext;

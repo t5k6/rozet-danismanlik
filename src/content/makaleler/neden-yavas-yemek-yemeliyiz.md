@@ -6,7 +6,7 @@ tags:
     - Beslenme
 image: img-mak/pablo-merchan-montes-Orz90t6o0e4-unsplash.jpg
 date: "2019-07-06T10:00:00.000Z"
-draft: false
+draft: true
 ---
 
 Günümüzün en büyük sağlık problemlerinden birisi insanların sağlıklı beslenmeye vakit bulamamalarıdır. Ne yazık ki yoğun iş temposu, sürekli bir aceleyi ve vakitsizliği doğuruyor. Bunun dışında insanlar yoğun çalışma saatleri sebebiyle uzun saatler boyunca masada, bilgisayar başında oturmak zorunda kalıyorlar ve hareketsizlik böylece sağlığı tehdit ediyor. Haliyle insanlar aceleden, vakitsizlikten yedikleri yemeklere dikkat edemedikleri gibi bir de hızlı yiyorlar.

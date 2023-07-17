@@ -62,18 +62,10 @@ function About() {
                     Hayatınızı Dönüştürecek Uzman Rehberlik
                   </h5>
                   <p>
-                    Özel Rozet Aile Danışma Merkezi, Uzman Klinik Psikolog Gökçin Çaylar ve Uzman
-                    Psikolog Zeliha Özata tarafından 2018 yılında kurulmuştur. 2007 yılında yolları
-                    Uludağ Üniversitesi Hastanesi’nde kesişen iki psikolog iki yıl aynı hastanede
-                    çalışmışlardır. Yolları yıllar sonra aynı dönemde dünyaya getirdikleri çocukları ile
-                    birlikte mesleki hayatlarına farklı bir yön verme isteklerinin ortaklığında tekrar
-                    kesişmiştir.{' '}
+                    Rozet Danışmanlık, aile danışmanlığı, bireysel danışmanlık ve kurumsal danışmanlık alanlarında güncel bilimsel bilgilerin ışığında hizmet verme amacı güder. Psikolojinin daha geniş kitlelere ulaşması için çaba sarf eder ve bireylere, ailelere ve kurumlara destek olur. Bizimle çalışan herkese profesyonel, saygılı ve güvenli bir danışmanlık deneyimi sunmak için çaba gösteririz.
                   </p>
                   <p>
-                    Özel Rozet Aile Danışma Merkezi, aile danışmanlığı, bireysel danışmanlık ve kurumsal danışmanlık alanlarında güncel bilimsel bilgilerin ışığında hizmet verme amacı güder. Psikolojinin daha geniş kitlelere ulaşması için çaba sarf eder ve bireylere, ailelere ve kurumlara destek olur. Bizimle çalışan herkese profesyonel, saygılı ve güvenli bir danışmanlık deneyimi sunmak için çaba gösteririz.
-                  </p>
-                  <p>
-                    Rozet Aile Danışma Merkezi olarak, her bireyin benzersiz olduğunu ve her durumun özgün olduğunu anlarız. Kişiselleştirilmiş yaklaşımlar kullanarak, her bir müşterinin ihtiyaçlarına uygun çözümler sunarız. Sizlere, güvenli bir ortamda destek olmak ve sağlıklı bir yaşam sürmeniz için araçlar sağlamak için buradayız.
+                    Rozet Danışmanlık olarak, her bireyin benzersiz olduğunu ve her durumun özgün olduğunu anlarız. Kişiselleştirilmiş yaklaşımlar kullanarak, her bir danışanın ya da kurumun ihtiyaçlarına uygun çözümler sunarız. Sizlere, güvenli bir ortamda destek olmak ve sağlıklı bir yaşam sürmeniz için araçlar sağlamak için buradayız.
                   </p>
                   <p>
                     Danışmanlık hizmetlerimizle ilgili daha fazla bilgi almak veya randevu almak için lütfen bizimle <Link to="/iletisim">iletişime</Link> geçin. Size yardımcı olmaktan memnuniyet duyarız.

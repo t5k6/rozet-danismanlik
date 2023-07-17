@@ -7,7 +7,7 @@ import React from 'react';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { kebabCase, replaceTurkishLetters } from '../components/helpers/utils';
+import { kebabCase } from '../components/helpers/utils';
 import { colors } from '../styles/colors';
 import type { PageContext } from '../templates/post';
 import { AuthorList } from './AuthorList';
@@ -36,6 +36,7 @@ export function PostCard({ post, isLarge = false }: PostCardProps) {
           <PostCardImage className="post-card-image">
             {post.frontmatter?.image && (
               <GatsbyImage
+                // rome-ignore lint/style/noNonNullAssertion: <explanation>
                 image={getImage(post.frontmatter.image)!}
                 alt={`${post.frontmatter.title} cover image`}
                 style={{ height: '100%' }}

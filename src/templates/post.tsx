@@ -1,13 +1,13 @@
 import { format } from 'date-fns';
 import { graphql, Link } from 'gatsby';
-import { GatsbyImage, getSrc, getImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getSrc, getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 import { lighten, setLightness } from 'polished';
 import React from 'react';
 
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { kebabCase, replaceTurkishLetters } from '../components/helpers/utils';
+import { kebabCase } from '../components/helpers/utils';
 import { Footer } from '../components/Footer';
 import SiteNav, { SiteNavMain } from '../components/header/SiteNav';
 import PostContent from '../components/PostContent';
@@ -23,7 +23,7 @@ import { AuthorList } from '../components/AuthorList';
 export type Author = {
   name: string;
   bio: string;
-  avatar: any;
+  avatar: { gatsbyImageData: IGatsbyImageData; };
 };
 
 type PageTemplateProps = {
@@ -31,13 +31,13 @@ type PageTemplateProps = {
   data: {
     markdownRemark: {
       html: string;
-      htmlAst: any;
+      htmlAst: string;
       excerpt: string;
       frontmatter: {
         title: string;
         date: string;
         userDate: string;
-        image: any;
+        image: { childImageSharp: { gatsbyImageData: IGatsbyImageData } };
         excerpt: string;
         tags: string[];
         author: Author[];
@@ -79,7 +79,7 @@ export type PageContext = {
     };
   };
   frontmatter: {
-    image: any;
+    image: { childImageSharp: { gatsbyImageData: IGatsbyImageData } };
     excerpt: string;
     title: string;
     date: string;
@@ -216,7 +216,7 @@ function PageTemplate({ data, pageContext, location }: PageTemplateProps) {
                         </time>
                         <span className="byline-reading-time">
                           <span className="bull">&bull;</span>
-                          {post.fields.readingTime.minutes}
+                          {Math.ceil(+post.fields.readingTime.minutes)} dk okuma süresi
                         </span>
                       </div>
                     </section>
@@ -227,6 +227,7 @@ function PageTemplate({ data, pageContext, location }: PageTemplateProps) {
               {post.frontmatter.image && (
                 <PostFullImage>
                   <GatsbyImage
+                    // rome-ignore lint/style/noNonNullAssertion: <explanation>
                     image={getImage(post.frontmatter.image)!}
                     style={{ height: '100%' }}
                     alt={post.frontmatter.title}

@@ -5,18 +5,20 @@ import RehypeReact from 'rehype-react';
 
 import { colors } from '../styles/colors';
 
-const renderAst = new RehypeReact({
+// rome-ignore lint/suspicious/noExplicitAny: <explanation>
+const renderAst = new (RehypeReact as any)({
   createElement: React.createElement,
   components: {},
 }).Compiler;
 
+// rome-ignore lint/suspicious/noExplicitAny: <explanation>
 const Ast = ({ ast, ...props }: any) => {
   ast.properties = props;
   return renderAst(ast);
 };
 
 export type PostContentProps = {
-  htmlAst: any;
+  htmlAst: string;
 };
 
 function PostContent({ htmlAst }: PostContentProps) {

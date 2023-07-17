@@ -37,8 +37,8 @@ export function ReadNextCard(props: ReadNextProps) {
     <ReadNextCardArticle className="read-next-card">
       <header className="read-next-card-header">
         <ReadNextCardHeaderTitle>
-          <span>More in</span>{' '}
-          <Link to={`/tags/${kebabCase(props.tags[0])}/`}>{props.tags[0]}</Link>
+
+          <Link to={`/tags/${kebabCase(props.tags[0])}/`}>{props.tags[0]}</Link> ile alakalı <span>Daha fazlası</span>{' '}
         </ReadNextCardHeaderTitle>
       </header>
       <ReadNextCardContent className="read-next-card-content">
@@ -56,7 +56,7 @@ export function ReadNextCard(props: ReadNextProps) {
                 </h4>
                 <ReadNextCardMeta className="read-next-card-meta">
                   <p>
-                    <time dateTime={datetime}>{displayDatetime}</time> - {n.node.timeToRead} okuma süresi
+                    <time dateTime={datetime}>{displayDatetime}</time> {n.node.timeToRead}
                   </p>
                 </ReadNextCardMeta>
               </li>
@@ -66,9 +66,9 @@ export function ReadNextCard(props: ReadNextProps) {
       </ReadNextCardContent>
       <ReadNextCardFooter className="read-next-card-footer">
         <Link to={`/tags/${kebabCase(props.tags[0])}/`}>
-          {props.relatedPosts.totalCount > 1 && `See all ${props.relatedPosts.totalCount} posts`}
-          {props.relatedPosts.totalCount === 1 && '1 post'}
-          {props.relatedPosts.totalCount === 0 && 'No posts'} →
+          {props.relatedPosts.totalCount > 1 && `Diğer ${props.relatedPosts.totalCount} makale`}
+          {props.relatedPosts.totalCount === 1 && '1 makale'}
+          {props.relatedPosts.totalCount === 0 && 'Makale yok'} →
         </Link>
       </ReadNextCardFooter>
     </ReadNextCardArticle>

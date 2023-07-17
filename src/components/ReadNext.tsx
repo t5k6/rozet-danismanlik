@@ -114,4 +114,5 @@ const ReadNextFeed = styled.div`
   flex-wrap: wrap;
   margin: 0 -25px;
   padding: 60px 0 0 0;
+  grid-column-gap: 1em;
 `;

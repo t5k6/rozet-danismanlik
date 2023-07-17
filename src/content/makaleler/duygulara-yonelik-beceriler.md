@@ -7,7 +7,7 @@ tags:
     - duygular
 image: img-mak/hean-prinsloo-715097-unsplash.jpg
 date: "2018-12-06T10:00:00.000Z"
-draft: false
+draft: true
 excerpt: Duygusal dengeyi sağlamanın ve kendinizi iyi hissetmenin önemini keşfedin. Duygusal zorluklarla başa çıkmanın etkili yollarını öğrenin ve hayatınızda daha fazla denge ve mutluluk yaratın.
 ---
 

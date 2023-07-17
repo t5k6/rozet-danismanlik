@@ -1,16 +1,9 @@
-Özel Rozet Aile Danışma Merkezi'nin web sitesi olan https://rozetdanismanlik.com/'un kaynak kodunu içerir. Rozet Danışmanlık, aile danışmanlığı, bireysel danışmanlık ve kurumsal danışmanlık hizmetleri sunan bir merkezdir.
+[rozetdanismanlik.com](https://rozetdanismanlik.com/) web sitesi kaynak kodunu içerir. Rozet Danışmanlık, aile danışmanlığı, bireysel danışmanlık ve kurumsal danışmanlık hizmetleri sunan bir merkezdir.
 
 ## Özellikler
-[Gatsby-casper](https://github.com/scttcper/gatsby-casper) temel alınarak geliştirilmiştir.
+Gatsby.js bazlı [Gatsby-casper](https://github.com/scttcper/gatsby-casper) temel alınarak geliştirilmiştir.
 
-Gatsby.js kullanılarak oluşturulmuş bir statik web sitesi projesi.
-React tabanlı, kullanıcı dostu ve duyarlı bir tasarım.
-Hizmetler, makaleler ve hakkımızda gibi sayfalar içerir.
-Markdown formatında yazılmış makalelerin yönetimi.
-SEO dostu URL yapıları.
-CSS-in-JS kullanımı için Emotion kütüphanesi entegrasyonu.
-Verimli bir Gatsby eklenti ekosistemi.
-Kurulum
+## Kurulum
 Bu projeyi kendi bilgisayarınıza klonlayın:
 
 ```bash

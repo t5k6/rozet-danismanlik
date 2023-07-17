@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { kebabCase, replaceTurkishLetters } from '../components/helpers/utils';
+import { kebabCase } from '../components/helpers/utils';
 import { colors } from '../styles/colors';
 import type { Author } from '../templates/post';
 import { AuthorProfileImage } from './PostCard';
@@ -52,6 +52,7 @@ export function AuthorListItem(props: AuthorListItemProps) {
         <div css={[AuthorCardStyles, hovered && Hovered]} className="author-card">
           {props.author.avatar && (
             <GatsbyImage
+              // rome-ignore lint/style/noNonNullAssertion: <explanation>
               image={getImage(props.author.avatar)!}
               css={AuthorProfileImage}
               className="author-profile-image"
@@ -76,6 +77,7 @@ export function AuthorListItem(props: AuthorListItemProps) {
         to={`/yazar/${kebabCase(props.author.name)}/`}
       >
         <GatsbyImage
+          // rome-ignore lint/style/noNonNullAssertion: <explanation>
           image={getImage(props.author.avatar)!}
           css={AuthorProfileImage}
           className="author-profile-image"

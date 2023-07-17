@@ -3,9 +3,9 @@ const path = require('path');
 
 module.exports = {
   siteMetadata: {
-    title: 'Özel Rozet Aile Danışma Merkezi',
+    title: 'Rozet Danışmanlık',
     description:
-      'Özel Rozet Aile Danışma Merkezi’nde alanında uzman psikologlar tarafından, yetişkin danışmanlığı, aile ve çift danışmanlığı, çocuk ve ergen danışmanlığı, zeka ve gelişim testleri, okumayı güçlendirme ve dikkat geliştirme programı başta olmak üzere; kurumsal alanda danışmanlık ve eğitimler verilmektedir.',
+      'Rozet Danışmanlık’da alanında uzman psikologlar tarafından, yetişkin danışmanlığı, aile ve çift danışmanlığı, çocuk ve ergen danışmanlığı, zeka ve gelişim testleri, okumayı güçlendirme ve dikkat geliştirme programı başta olmak üzere; kurumsal alanda danışmanlık ve eğitimler verilmektedir.',
     siteUrl: 'https://rozetdanismanlik.com', // full path to blog - no ending slash
   },
   mapping: {
@@ -102,7 +102,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'RozetDanismanlik',
         short_name: 'Rozet',
@@ -116,7 +116,7 @@ module.exports = {
         // An optional attribute which provides support for CORS check.
         // If you do not provide a crossOrigin option, it will skip CORS for manifest.
         // Any invalid keyword or empty string defaults to `anonymous`
-        crossOrigin: `use-credentials`,
+        crossOrigin: 'use-credentials',
       },
     },
     {

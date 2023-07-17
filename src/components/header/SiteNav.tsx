@@ -17,6 +17,7 @@ import { SiteNavLogo } from './SiteNavLogo';
 type SiteNavProps = {
   isHome?: boolean;
   isPost?: boolean;
+  // rome-ignore lint/suspicious/noExplicitAny: <explanation>
   post?: any;
 };
 
@@ -90,23 +91,23 @@ class SiteNav extends React.Component<SiteNavProps, SiteNavState> {
             {!isHome && <SiteNavLogo />}
             <SiteNavContent css={[this.state.showTitle ? HideNav : '']}>
               <ul css={NavStyles} role="menu">
-                <li role="menuitem">
-                  <Link to="/" activeClassName="nav-current">
+                <li role="presentation">
+                  <Link role="menuitem" to="/" activeClassName="nav-current">
                     Ana Sayfa
                   </Link>
                 </li>
-                <li role="menuitem">
-                  <Link to="/hakkimizda" activeClassName="nav-current">
+                <li role="presentation">
+                  <Link role="menuitem" to="/hakkimizda" activeClassName="nav-current">
                     Hakkımızda
                   </Link>
                 </li>
-                <li role="menuitem">
-                  <Link to="/hizmetlerimiz" activeClassName="nav-current">
+                <li role="presentation">
+                  <Link role="menuitem" to="/hizmetlerimiz" activeClassName="nav-current">
                     Hizmetlerimiz
                   </Link>
                 </li>
-                <li role="menuitem">
-                  <Link to="/iletisim" activeClassName="nav-current">
+                <li role="presentation">
+                  <Link role="menuitem" to="/iletisim" activeClassName="nav-current">
                     İletişim
                   </Link>
                 </li>

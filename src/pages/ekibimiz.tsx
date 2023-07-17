@@ -59,7 +59,7 @@ function About() {
                                         <a href="https://github.com/scttcper/gatsby-casper">scttcper/gatsby-casper</a>
                                     </h5>
                                     <p>
-                                        Özel Rozet Aile Danışma Merkezi, Uzman Klinik Psikolog Gökçin Çaylar ve Uzman
+                                        Rozet Danışmanlık, Uzman Klinik Psikolog Gökçin Çaylar ve Uzman
                                         Psikolog Zeliha Özata tarafından 2018 yılında kurulmuştur. 2007 yılında yolları
                                         Uludağ Üniversitesi Hastanesi’nde kesişen iki psikolog iki yıl aynı hastanede
                                         çalışmışlardır. Yolları yıllar sonra aynı dönemde dünyaya getirdikleri çocukları ile
@@ -67,7 +67,7 @@ function About() {
                                         kesişmiştir.{' '}
                                     </p>
                                     <p>
-                                        Özel Rozet Aile Danışma Merkezi, psikolojinin daha geniş kitlelere yayılması için
+                                        Rozet Danışmanlık, psikolojinin daha geniş kitlelere yayılması için
                                         aile danışmanlığı, bireysel danışmanlık ve kurumsal danışmanlık alanlarında güncel
                                         bilimsel bilgilerin ışığında hizmet vermeyi amaçlamaktadır.
                                     </p>

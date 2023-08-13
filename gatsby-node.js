@@ -4,7 +4,26 @@ const readingTime = require('reading-time');
 const { createFilePath } = require('gatsby-source-filesystem');
 
 // import kebabCase from ('./src/components/helpers/utils.tsx');
-// import replaceTurkishLetters from ('./src/components/helpers/utils.tsx');
+const replaceTurkishLetters = text => {
+  const replacements = {
+    ı: 'i',
+    ğ: 'g',
+    ü: 'u',
+    ş: 's',
+    ö: 'o',
+    ç: 'c',
+    İ: 'I',
+    Ğ: 'G',
+    Ü: 'U',
+    Ş: 'S',
+    Ö: 'O',
+    Ç: 'C',
+  };
+
+  return text.replace(/./g, function (char) {
+    return replacements[char] || char;
+  });
+};
 
 const kebabCase = str =>
   str
@@ -183,7 +202,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const authorTemplate = path.resolve('./src/templates/author.tsx');
   result.data.allAuthorYaml.edges.forEach(({ node }) => {
     createPage({
-      path: decodeURIComponent(`/yazar/${kebabCase(node.name)}/`),
+      path: decodeURIComponent(`/yazar/${kebabCase(replaceTurkishLetters(node.name))}/`),
       component: authorTemplate,
       context: {
         author: node.name,

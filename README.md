@@ -1,5 +1,7 @@
 [rozetdanismanlik.com](https://rozetdanismanlik.com/) web sitesi kaynak kodunu içerir. Rozet Danışmanlık, aile danışmanlığı, bireysel danışmanlık ve kurumsal danışmanlık hizmetleri sunan bir merkezdir.
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/56ea34ad-31b3-438b-8878-3d1cb2465cf6/deploy-status)](https://app.netlify.com/sites/heuristic-hypatia-51d679/deploys)
+
 ## Özellikler
 Gatsby.js bazlı [Gatsby-casper](https://github.com/scttcper/gatsby-casper) temel alınarak geliştirilmiştir.
 

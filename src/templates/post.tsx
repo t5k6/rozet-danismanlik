@@ -7,7 +7,7 @@ import React from 'react';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { kebabCase } from '../components/helpers/utils';
+import { kebabCase, replaceTurkishLetters } from '../components/helpers/utils';
 import { Footer } from '../components/Footer';
 import SiteNav, { SiteNavMain } from '../components/header/SiteNav';
 import PostContent from '../components/PostContent';
@@ -205,7 +205,7 @@ function PageTemplate({ data, pageContext, location }: PageTemplateProps) {
                     <section className="post-full-byline-meta">
                       <h4 className="author-name">
                         {post.frontmatter.author.map(author => (
-                          <Link key={author.name} to={`/yazar/${kebabCase(author.name)}/`}>
+                          <Link key={author.name} to={`/yazar/${kebabCase(replaceTurkishLetters(author.name))}/`}>
                             {author.name}
                           </Link>
                         ))}

@@ -78,6 +78,11 @@ export const PostFeed = css`
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
 
+  .post-card:hover {
+    transform: translate3D(0,-1px,0) scale(1.02);
+    transition: all .4s ease;
+  }
+
   @media (prefers-color-scheme: dark) {
     background: ${colors.darkmode};
   }

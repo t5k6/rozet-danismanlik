@@ -50,6 +50,7 @@ export const PostFullContent = styled.section`
     padding: 0;
   }
   @media (max-width: 500px) {
+    padding: 0;
     .post-full-custom-excerpt {
       font-size: 1.9rem;
       line-height: 1.5em;

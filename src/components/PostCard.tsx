@@ -7,7 +7,7 @@ import React from 'react';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { kebabCase } from '../components/helpers/utils';
+import { kebabCase, replaceTurkishLetters } from '../components/helpers/utils';
 import { colors } from '../styles/colors';
 import type { PageContext } from '../templates/post';
 import { AuthorList } from './AuthorList';
@@ -78,7 +78,7 @@ export function PostCard({ post, isLarge = false }: PostCardProps) {
             <span>
               {post.frontmatter.author.map((author, index) => (
                 <React.Fragment key={author.name}>
-                  <Link to={`/yazar/${kebabCase(author.name)}/`}>{author.name}</Link>
+                  <Link to={`/yazar/${kebabCase(replaceTurkishLetters(author.name))}/`}>{author.name}</Link>
                   {post.frontmatter.author.length - 1 > index && ', '}
                 </React.Fragment>
               ))}
@@ -101,9 +101,11 @@ const PostCardStyles = css`
   flex-direction: column;
   overflow: hidden;
   margin: 0 0 40px;
-  padding: 0 0 40px;
+  padding: 0 10px 40px;
   min-height: 220px;
   background-size: cover;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 
   @media (max-width: 795px) {
     margin-bottom: 0;

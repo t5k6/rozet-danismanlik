@@ -20,11 +20,23 @@ import {
 import { NoImage, PostFull, PostFullHeader, PostFullTitle } from '../templates/post';
 import type { PageContext } from '../templates/post';
 import { colors } from '../styles/colors';
+import { IGatsbyImageData } from 'gatsby-plugin-image';
 
 const PageTemplate = css`
   .site-main {
     margin-top: 40px;
     background: #fff;
+  }
+
+  @media (max-width: 500px) {
+    .post-title {
+      padding: 20px 20px 20px;
+    }
+
+    .post-content h5 {
+      text-align: center;
+      margin: 0;
+    }
   }
 
   @media (prefers-color-scheme: dark) {
@@ -46,8 +58,7 @@ export type IndexProps = {
     numPages: number;
   };
   data: {
-    logo: any;
-    header: any;
+    logo: { gatsbyImageData: IGatsbyImageData };
     allMarkdownRemark: {
       edges: Array<{
         node: PageContext;

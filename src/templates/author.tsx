@@ -2,7 +2,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import { getSrc } from 'gatsby-plugin-image';
+import { getSrc, IGatsbyImageData } from 'gatsby-plugin-image';
 
 import { Footer } from '../components/Footer';
 import SiteNav from '../components/header/SiteNav';
@@ -26,15 +26,12 @@ import {
 import type { PageContext } from './post';
 
 import config from '../website-config';
+import { IGatsbyImageDataParent } from 'gatsby-plugin-image/dist/src/components/hooks';
 
 type AuthorTemplateProps = {
   location: Location;
   data: {
-    logo: {
-      childImageSharp: {
-        fluid: any;
-      };
-    };
+    logo: { gatsbyImageData: IGatsbyImageData },
     allMarkdownRemark: {
       totalCount: number;
       edges: Array<{
@@ -48,9 +45,17 @@ type AuthorTemplateProps = {
       instagram?: string;
       facebook?: string;
       location?: string;
-      profile_image?: any;
+      profile_image?: {
+        childImageSharp: {
+          gatsbyImageData: IGatsbyImageData;
+        };
+      };
       bio?: string;
-      avatar: any;
+      avatar: {
+        childImageSharp: {
+          gatsbyImageData: IGatsbyImageData;
+        };
+      };
     };
   };
 };
@@ -118,7 +123,7 @@ function Author({ data, location }: AuthorTemplateProps) {
           </div>
 
           <ResponsiveHeaderBackground
-            backgroundImage={getSrc(author.profile_image)}
+            backgroundImage={getSrc(author.profile_image as IGatsbyImageDataParent)}
             css={[outer, SiteHeaderBackground]}
             className="site-header-background"
           >
@@ -287,7 +292,8 @@ const AuthorHeader = css`
   align-items: center;
 
   @media (max-width: 500px) {
-    padding: 10px 0 0;
+    padding: 10px 2px 0;
+    margin-left: 2px;
 
     /* no image */
     padding-bottom: 10px;
@@ -317,7 +323,12 @@ const AuthorMeta = css`
   }
 
   @media (max-width: 500px) {
-    margin-top: 8px;
+    margin-top: 4px;
+    text-transform: none;
+    .author-social-link + .author-social-link:before {
+      content: '•';
+      margin: 0 4px;
+    }
   }
 
   @media (max-width: 700px) {

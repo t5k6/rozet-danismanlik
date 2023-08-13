@@ -28,6 +28,17 @@ const PageTemplate = css`
     padding: 40px 170px 20px;
   }
 
+  @media (max-width: 500px) {
+    .post-title {
+      padding: 20px 20px 20px;
+    }
+
+    .post-content h5 {
+      text-align: center;
+      margin: 0;
+    }
+  }
+
   @media (prefers-color-scheme: dark) {
     .site-main {
       /* background: var(--darkmode); */

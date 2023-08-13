@@ -19,6 +19,7 @@ export function Footer() {
               | {config.title} {config.footer}
             </Link>
           )}
+          | <Link to="/credits">Credits</Link>
         </section>
         <SiteFooterNav>
           <Link to="/">Son Gönderiler</Link>

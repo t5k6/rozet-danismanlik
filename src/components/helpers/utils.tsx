@@ -47,6 +47,7 @@ const Slogan: React.FC<SloganProps> = ({ animDuration }) => {
     );
 };
 
+// rome-ignore lint/style/noNonNullAssertion: <explanation>
 export const kebabCase = (str: string): string => str!.match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)!.join('-').toLowerCase();
 
 export const replaceTurkishLetters = (text: string): string => {

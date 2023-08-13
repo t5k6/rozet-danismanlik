@@ -43,12 +43,33 @@ const PageTemplate = css`
         padding: 0 100px 0;
     }
 
-  @media (prefers-color-scheme: dark) {
-    .site-main {
-      /* background: var(--darkmode); */
-      background: ${colors.darkmode};
+    @media screen and (max-width: 500px) {
+        .site-main {
+            margin-top: 20px;
+        }
+        .post-full-content {
+            padding: 0;
+        }
+        .contactGrid {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(4, 1fr);
+            grid-column-gap: 0px;
+            grid-row-gap: 0px;
+        }
+        .contact1 { grid-area: 1 / auto / auto / auto; }
+        .contact2 { grid-area: 2 / auto / auto / auto; }
+        .contact3 { grid-area: 3 / auto / auto / auto; }
+        .contact4 { grid-area: 4 / auto / auto / auto; }
+      }
+
+
+    @media (prefers-color-scheme: dark) {
+      .site-main {
+        /* background: var(--darkmode); */
+        background: ${colors.darkmode};
+      }
     }
-  }
 `;
 
 function About() {
@@ -84,25 +105,25 @@ function About() {
                                     />
                                     <br />
                                     <div className='contactGrid'>
-                                        <div className='contact1'>
+                                        <div className='subgrid contact1'>
                                             <strong>Açık Adresimiz: </strong>
                                             <p>
                                                 <address>🏢 Yüzüncüyıl, Arkat Plaza Bursa, İzmir Yolu Cd 12. Blok A, No: 3, 16120 Nilüfer/Bursa</address>
                                             </p>
                                         </div>
-                                        <div className='contact2'>
+                                        <div className='subgrid contact2 '>
                                             <strong>Email:</strong><p> <span>📧 info</span>
                                                 <span>@</span>
                                                 <span>rozetdanismanlik.com</span></p>
                                         </div>
-                                        <div className='contact3'>
+                                        <div className='subgrid contact3'>
                                             <strong>Çalışma Saatleri: </strong>
                                             <p>Haftaiçi   : 🕘 09:00 - 🕕 18:00
                                                 <br />
                                                 Haftasonu: 🕘 09:00 - 🕓 16:00
                                                 <br /></p>
                                         </div>
-                                        <div className='contact4'>
+                                        <div className='subgrid contact4'>
                                             <strong>Telefon Numaramız: </strong><p><a href="tel:+905432201816">📞 0543 220 18 16</a></p>
                                         </div>
                                     </div>

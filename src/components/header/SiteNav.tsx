@@ -8,9 +8,7 @@ import styled from '@emotion/styled';
 import { colors } from '../../styles/colors';
 import { SocialLink, SocialLinkFb, bgShadow } from '../../styles/shared';
 import config from '../../website-config';
-import { Facebook } from '../icons/facebook';
-import { Instagram } from '../icons/instagram';
-import { Twitter } from '../icons/twitter';
+import { Facebook, Instagram, Twitter } from '../icons/socialMedia';
 //import { SubscribeModal } from '../subscribe/SubscribeModal';
 import { SiteNavLogo } from './SiteNavLogo';
 
@@ -214,6 +212,10 @@ const SiteNavLeft = styled.div`
   white-space: nowrap;
 
   // -ms-overflow-scrolling: touch;
+  @media screen and (max-width: 500px) {
+    padding-left: 5vw;
+    text-transform: none;
+  }
 
   @media (max-width: 700px) {
     margin-right: 0;

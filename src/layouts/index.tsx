@@ -2,7 +2,7 @@ import React from 'react';
 import { Global, css } from '@emotion/react';
 import { lighten } from 'polished';
 
-import favicon from '../favicon.ico';
+import Favicon from '../components/header/Favicon';
 import { colors } from '../styles/colors';
 
 type IndexProps = {
@@ -15,7 +15,7 @@ function IndexLayout(props: IndexProps) {
     return (
       <>
         <meta name="viewport" content="initial-scale=1, user-scalable=no, viewport-fit=cover, width=device-width" />
-        <link rel="icon" href={favicon} type="image/x-icon" />
+        <Favicon />
       </>)
   }
 
